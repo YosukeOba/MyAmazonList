@@ -34,6 +34,29 @@
             object-fit: cover;
         }
 
+        /* リボンのスタイル */
+    .ribbon {
+        width: 150px;
+        height: 30px;
+        background-color: #00aaff;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        left: -50px;
+        transform: rotate(-45deg);
+        z-index: 1;
+    }
+
+    /* カード全体の相対配置を有効にする */
+    .card {
+        position: relative;
+        overflow: hidden;
+    }
+
     </style>
 </head>
 <body>
@@ -56,7 +79,9 @@
         <div class="row">
             <!-- 商品カード -->
             <div class="col-12 col-md-4">
-                <div class="card mb-4">
+                <div class="card mb-4 position-relative">
+                    <!-- リボンの追加 -->
+                    <div class="ribbon">AI生成</div>
                     <img src="https://m.media-amazon.com/images/I/61LoFtJau0L._AC_SX679_.jpg" class="card-img-top" alt="Anker Power Bank">
                     <div class="card-body">
                         <h5 class="card-title">Anker Power Bank</h5>
@@ -71,7 +96,8 @@
 
             <!-- 商品カード -->
             <div class="col-12 col-md-4">
-                <div class="card mb-4">
+                <div class="card mb-4 position-relative">
+                    <div class="ribbon">AI生成</div>
                     <img src="https://m.media-amazon.com/images/I/619XKZmQJ1L._AC_SX679_.jpg" class="card-img-top" alt="TNTOR モバイルバッテリー">
                     <div class="card-body">
                         <h5 class="card-title">TNTOR モバイルバッテリー</h5>
