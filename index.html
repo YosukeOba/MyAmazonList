@@ -31,7 +31,7 @@
 <body>
 
     <!-- ナビゲーションバー -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="top-navbar">
         <a class="navbar-brand" href="/MyAmazonList/">商品紹介サイト</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
@@ -97,7 +97,7 @@
                 document.getElementById('main-content').innerHTML = html;
                 
                 // ページの上部にスクロール
-                document.getElementById('main-content').scrollIntoView({
+                document.getElementById('top-navbar').scrollIntoView({
                     behavior: 'smooth' // スムーズスクロール
                 });
             })
