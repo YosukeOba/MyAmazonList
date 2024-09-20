@@ -58,7 +58,7 @@
             <p class="card-text">大容量10000mAhで、最大22.5Wの出力が可能なモバイルバッテリー。USB PD対応で、iPhone 15やAndroidを高速充電。</p>
             <!-- ボタンを右寄せにする -->
             <div class="text-right">
-                <button class="btn btn-primary" onclick="loadProductDetails('products/anker-powerbank.html')">詳細を見る</button>
+                <button class="btn btn-primary" onclick="loadProductDetailsAndScroll('products/anker-powerbank.html')">詳細を見る</button>
             </div>
         </div>
     </div>
@@ -74,7 +74,7 @@
                         <p class="card-text">軽量・超薄型で持ち運び便利な5000mAhのスマホ充電器。Type-C専用で、災害時の非常用電源としても活躍。</p>
                         <!-- ボタンを右寄せにする -->
                         <div class="text-right">
-                            <button class="btn btn-primary" onclick="loadProductDetails('products/tntor-battery.html')">詳細を見る</button>
+                            <button class="btn btn-primary" onclick="loadProductDetailsAndScroll('products/tntor-battery.html')">詳細を見る</button>
                         </div>
                     </div>
                 </div>
@@ -88,19 +88,22 @@
         <p>&copy; 2024 商品紹介サイト</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // 商品詳細を読み込む関数
-        function loadProductDetails(page) {
-            fetch(page)
-                .then(response => response.text())
-                .then(html => {
-                    // メインコンテンツの部分に読み込んだHTMLを挿入
-                    document.getElementById('main-content').innerHTML = html;
-                })
-                .catch(error => console.error('エラー:', error));
-        }
-    </script>
+<script>
+    function loadProductDetailsAndScroll(page) {
+        fetch(page)
+            .then(response => response.text())
+            .then(html => {
+                // メインコンテンツの部分に読み込んだHTMLを挿入
+                document.getElementById('main-content').innerHTML = html;
+                
+                // ページの上部にスクロール
+                document.getElementById('main-content').scrollIntoView({
+                    behavior: 'smooth' // スムーズスクロール
+                });
+            })
+            .catch(error => console.error('エラー:', error));
+    }
+</script>
 
 </body>
 </html>
