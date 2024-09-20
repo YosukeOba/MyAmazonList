@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>商品紹介サイト</title>
+    <!-- BootstrapのCSSをCDNから読み込み -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- カスタムCSS -->
+    <style>
+        /* ヘッダーのスタイル */
+        .navbar {
+            background-color: #2c3e50;
+        }
+        .navbar-brand, .nav-link, .navbar-text {
+            color: #ecf0f1 !important;
+        }
+        /* フッターのスタイル */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        /* メインコンテンツのスタイル */
+        .main-content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/index.html">商品紹介サイト</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/index.html">ホーム</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+
+    <div class="container main-content" id="main-content">
+    </div>
+
+    <div class="container main-content">
+        <div class="row">
+
+            <!-- 商品カード -->
+<div class="col-md-4">
+    <div class="card mb-4">
+        <img src="https://m.media-amazon.com/images/I/61LoFtJau0L._AC_SX679_.jpg" class="card-img-top" alt="Anker Power Bank" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title">Anker Power Bank</h5>
+            <p class="card-text">大容量10000mAhで、最大22.5Wの出力が可能なモバイルバッテリー。USB PD対応で、iPhone 15やAndroidを高速充電。</p>
+            <!-- ボタンを右寄せにする -->
+            <div class="text-right">
+                <button class="btn btn-primary" onclick="loadProductDetails('products/anker-powerbank.html')">詳細を見る</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <!-- 商品カード -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="https://m.media-amazon.com/images/I/619XKZmQJ1L._AC_SX679_.jpg" class="card-img-top" alt="TNTOR モバイルバッテリー" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">TNTOR モバイルバッテリー</h5>
+                        <p class="card-text">軽量・超薄型で持ち運び便利な5000mAhのスマホ充電器。Type-C専用で、災害時の非常用電源としても活躍。</p>
+                        <!-- ボタンを右寄せにする -->
+                        <div class="text-right">
+                            <button class="btn btn-primary" onclick="loadProductDetails('products/tntor-battery.html')">詳細を見る</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 他の商品カードも同様に追加 -->
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2024 商品紹介サイト</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 商品詳細を読み込む関数
+        function loadProductDetails(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(html => {
+                    // メインコンテンツの部分に読み込んだHTMLを挿入
+                    document.getElementById('main-content').innerHTML = html;
+                })
+                .catch(error => console.error('エラー:', error));
+        }
+    </script>
+
+</body>
+</html>
